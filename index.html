@@ -1,0 +1,424 @@
+﻿<!doctype html>
+<html lang="ko" class="no-js">
+<head>
+  <!-- Open Graph / 네이버 검색 및 소셜 공유 최적화 -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="퀸즈홈테라피 | 서울·경기·인천 프리미엄 힐링 케어" />
+  <meta property="og:description" content="퀸즈홈테라피 — 늦은 퇴근 뒤 집에서, 호텔 체크인 뒤 객실에서. 서울·경기·인천 방문 가능 시간과 맞춤 힐링 코스를 차분히 안내합니다." />
+  <meta property="og:url" content="https://venus-therapy.netlify.app/" />
+  <meta property="og:site_name" content="퀸즈홈테라피" />
+  <meta property="og:image" content="https://venus-therapy.netlify.app/assets/images/main-banner.jpg" />
+  <meta name="naver-site-verification" content="1be7faeb6dd803c03d6f91ca640d0072a4de6652" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>퀸즈홈테라피 | 서울·경기·인천 프리미엄 힐링 케어</title>
+  <meta name="description" content="퀸즈홈테라피 — 늦은 퇴근 뒤 집에서, 호텔 체크인 뒤 객실에서. 서울·경기·인천 방문 가능 시간과 맞춤 힐링 코스를 차분히 안내합니다.">
+  <link rel="canonical" href="https://ssoulhomethai365.netlify.app/">
+  <meta name="theme-color" content="#08151f">
+  
+  <style>
+    :root {
+      --bg-main: #08151f;
+      --bg-card: #0e2333;
+      --bg-card-hover: #132f45;
+      --text-main: #f0f4f8;
+      --text-sub: #94a3b8;
+      --accent: #ff7a18;
+      --accent-gradient: linear-gradient(135deg, #ff7a18, #af002d);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --max-w: 1100px;
+      --font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-main); color: var(--text-main); font-family: var(--font-family);
+      line-height: 1.6; letter-spacing: -0.02em; word-break: keep-all; padding-bottom: 100px;
+    }
+    a { color: inherit; text-decoration: none; }
+    
+    .site-header {
+      position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 24px; background: rgba(8, 21, 31, 0.92); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color); z-index: 1000;
+    }
+    .brand { display: flex; flex-direction: column; font-size: 1.15rem; font-weight: 800; }
+    .brand small { font-size: 0.65rem; color: var(--text-sub); letter-spacing: 0.05em; }
+    .site-nav { display: flex; align-items: center; gap: 20px; }
+    .site-nav a { font-size: 0.95rem; color: var(--text-sub); }
+    .site-nav a:hover { color: #fff; }
+    .site-nav .nav-call {
+      background: var(--accent-gradient); color: #fff; padding: 6px 16px; border-radius: 20px; font-weight: 700;
+    }
+    
+    .section-shell { max-width: var(--max-w); margin: 0 auto; padding: 60px 20px; }
+    .section-intro { text-align: center; margin-bottom: 40px; }
+    .section-intro span { font-size: 0.8rem; font-weight: 700; color: var(--accent); letter-spacing: 0.1em; }
+    .section-intro h2 { font-size: 1.8rem; font-weight: 800; margin: 8px 0; }
+    .section-intro p { color: var(--text-sub); font-size: 0.95rem; }
+    
+    .home-hero {
+      max-width: var(--max-w); margin: 0 auto; padding: 60px 20px 40px;
+      display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 40px;
+    }
+    .hero-kicker { color: var(--accent); font-size: 0.9rem; font-weight: 700; margin-bottom: 12px; }
+    .home-hero h1 { font-size: 2.6rem; line-height: 1.25; font-weight: 800; margin-bottom: 20px; }
+    .home-hero h1 em {
+      font-style: normal; background: var(--accent-gradient);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-lead { color: var(--text-sub); font-size: 1.05rem; margin-bottom: 30px; }
+    .hero-actions { display: flex; gap: 12px; margin-bottom: 35px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 24px; border-radius: 8px; font-weight: 700; font-size: 0.95rem;
+    }
+    .button--signal { background: var(--accent-gradient); color: #fff; }
+    .button--line { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: var(--text-main); }
+    .hero-facts { display: flex; gap: 20px; border-top: 1px solid var(--border-color); padding-top: 20px; }
+    .hero-facts span { font-size: 0.85rem; color: var(--text-sub); }
+    .hero-facts span b { color: var(--accent); font-size: 1rem; margin-right: 4px; }
+    
+    .hero-media {
+      background: var(--bg-card); border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border-color); box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center;
+    }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    
+    .promo-banner { max-width: var(--max-w); margin: 30px auto; padding: 0 20px; }
+    .promo-banner__inner {
+      background: linear-gradient(135deg, #132f45 0%, #0e2333 50%, #1f1024 100%);
+      border: 1px solid rgba(255, 122, 24, 0.3); border-radius: 16px; padding: 24px 28px;
+      display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    }
+    .promo-banner__text h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .promo-banner__text h3 em { font-style: normal; color: var(--accent); }
+    .promo-banner__text p { color: var(--text-sub); font-size: 0.9rem; }
+    .promo-banner__btn {
+      background: var(--accent-gradient); color: #fff; padding: 10px 22px;
+      border-radius: 30px; font-weight: 700; font-size: 0.9rem; white-space: nowrap;
+    }
+
+    .voice-section {
+      display: flex; align-items: center; gap: 24px; background: var(--bg-card);
+      border: 1px solid var(--border-color); border-radius: 16px; margin: 20px auto;
+      padding: 30px 24px; max-width: var(--max-w);
+    }
+    .voice-number { font-size: 2.2rem; font-weight: 900; color: rgba(255, 255, 255, 0.15); }
+    .voice-section aside { border-left: 2px solid var(--accent); padding-left: 16px; min-width: 150px; }
+    .voice-section aside span { font-size: 0.75rem; color: var(--accent); font-weight: 700; display: block; }
+    
+    .course-section { background: #050e14; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+    .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .course-card {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: 12px; padding: 24px; display: flex; flex-direction: column;
+    }
+    .course-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .course-top span { font-size: 1.2rem; font-weight: 800; color: var(--accent); }
+    .course-top small { background: rgba(255, 255, 255, 0.08); padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; }
+    .course-card h3 { font-size: 1.3rem; margin-bottom: 8px; }
+    .course-card p { color: var(--text-sub); font-size: 0.85rem; margin-bottom: 20px; flex-grow: 1; }
+    .course-card dl div { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.9rem; }
+    .course-card dl div dd { font-weight: 700; color: var(--accent); }
+    .course-card--highlight { border-color: rgba(255, 122, 24, 0.4); background: linear-gradient(145deg, #132f45, #0e2333); }
+
+    .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .review-card {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: 12px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .review-stars { color: #ffb703; font-size: 0.95rem; margin-bottom: 10px; }
+    .review-card p { color: var(--text-main); font-size: 0.95rem; line-height: 1.5; margin-bottom: 16px; }
+    .review-meta { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-sub); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px; }
+
+    .map-container { max-width: var(--max-w); margin: 0 auto; padding: 0 20px; }
+    .map-frame {
+      width: 100%; height: 360px; border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .map-frame iframe { width: 100%; height: 100%; border: 0; filter: invert(90%) hue-rotate(180deg); }
+
+    .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-list details { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 16px 20px; }
+    .faq-list summary { cursor: pointer; font-weight: 700; }
+    .faq-list details p { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--text-sub); font-size: 0.9rem; }
+    
+    /* 하단 깔끔한 3대 광역 지역 카드 */
+    .region-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .region-card {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: 12px; padding: 24px; display: flex; align-items: center; gap: 16px;
+      transition: transform 0.2s, background 0.2s, border-color 0.2s;
+    }
+    .region-card:hover { transform: translateY(-4px); background: var(--bg-card-hover); border-color: var(--accent); }
+    .region-card span { font-size: 1.4rem; font-weight: 900; color: var(--accent); }
+    .region-card b { display: block; font-size: 1.15rem; margin-bottom: 2px; }
+    .region-card small { color: var(--text-sub); font-size: 0.85rem; }
+
+    .final-cta { text-align: center; padding: 60px 20px; background: linear-gradient(to bottom, transparent, #050e14); }
+    .final-cta h2 { font-size: 2rem; margin: 12px 0; }
+    .site-footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-color); color: var(--text-sub); font-size: 0.85rem; }
+    
+    .contact-dock {
+      position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 8px; width: calc(100% - 32px); max-width: 440px; z-index: 9999;
+      padding: 6px; background: rgba(8, 21, 31, 0.95); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    .contact-dock__btn {
+      flex: 1; display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; height: 48px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 15px;
+    }
+    .contact-dock__btn--call { background: var(--accent-gradient); color: #fff; }
+    .contact-dock__btn--sms { background: rgba(255, 255, 255, 0.12); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); }
+    
+    @media (max-width: 768px) {
+      .home-hero { grid-template-columns: 1fr; text-align: center; padding-top: 30px; }
+      .hero-actions, .hero-facts { justify-content: center; }
+      .voice-section { flex-direction: column; text-align: center; }
+      .voice-section aside { border-left: none; border-top: 2px solid var(--accent); padding-top: 12px; padding-left: 0; }
+      .promo-banner__inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body class="home-page">
+
+  <header class="site-header">
+    <a class="brand" href="/">
+      <span>퀸즈홈테라피</span>
+      <small>QUEENS HOME THERAPY</small>
+    </a>
+    <nav class="site-nav">
+      <a href="#course">코스·요금</a>
+      <a href="#review">이용후기</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">지역안내</a>
+      <a class="nav-call" href="tel:0507-1280-3296">전화 상담</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="home-hero">
+      <div class="hero-copy">
+        <p class="hero-kicker">프리미엄 방문 케어 · 퀸즈홈테라피</p>
+        <h1><span>오늘의 끝을</span><br><span><em>머무는 곳에서</em></span></h1>
+        <p class="hero-lead">서울·경기·인천. 위치와 시간을 먼저 듣고<br>오늘 필요한 힐링 코스를 차분히 맞춥니다.</p>
+        <div class="hero-actions">
+          <a class="button button--signal" href="tel:0507-1280-3296">전화로 시간 맞추기 <i>↗</i></a>
+          <a class="button button--line" href="#course">코스·요금 보기</a>
+        </div>
+        <div class="hero-facts">
+          <span><b>24H</b> 상담 창구</span>
+          <span><b>AFTER</b> 관리 후 결제</span>
+          <span><b>5</b> 맞춤 코스</span>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="/assets/images/main-banner.jpg" alt="퀸즈홈테라피 메인 배너">
+      </div>
+    </section>
+
+    <!-- 프로모션 띠배너 -->
+    <section class="promo-banner">
+      <div class="promo-banner__inner">
+        <div class="promo-banner__text">
+          <h3>👑 퀸즈홈테라피 <em>100% 후불제 안심 케어</em></h3>
+          <p>선입금·예약금 일체 없음! 도착 후 결제로 편안하게 이용하세요.</p>
+        </div>
+        <a href="tel:0507-1280-3296" class="promo-banner__btn">지금 예약 문의 ↗</a>
+      </div>
+    </section>
+
+    <section class="voice-section">
+      <div class="voice-number">01</div>
+      <p>서울·경기·인천에서 밖으로 다시 나갈 힘보다 조용한 방문이 먼저인 밤. 계신 곳의 위치와 희망 시간을 듣고 최적의 힐링 코스를 제안합니다.</p>
+      <aside><span>OUR MANNER</span><b>짧게 묻고,<br>분명하게 안내합니다.</b></aside>
+    </section>
+
+    <!-- 1. 코스 & 요금 섹션 -->
+    <section class="course-section" id="course">
+      <div class="section-shell">
+        <div class="section-intro">
+          <span>COURSE &amp; PRICE</span>
+          <h2>코스 및 이용 요금</h2>
+          <p>선입금 없는 100% 후불제 안심 케어</p>
+        </div>
+        <div class="course-grid">
+          
+          <article class="course-card">
+            <div class="course-top"><span>01</span><small>DRY</small></div>
+            <h3>건식 힐링 코스</h3>
+            <p>오일 없이 건식 지압과 스트레칭으로 굳은 전신 근육을 시원하게 풀어가는 코스.</p>
+            <dl>
+              <div><dt>60분</dt><dd>60,000원</dd></div>
+              <div><dt>90분</dt><dd>80,000원</dd></div>
+              <div><dt>120분</dt><dd>100,000원</dd></div>
+            </dl>
+          </article>
+
+          <article class="course-card">
+            <div class="course-top"><span>02</span><small>AROMA</small></div>
+            <h3>아로마 힐링 코스</h3>
+            <p>고급 아로마 오일을 사용하여 뭉친 피로를 부드럽게 이완시키는 릴렉싱 케어.</p>
+            <dl>
+              <div><dt>60분</dt><dd>70,000원</dd></div>
+              <div><dt>90분</dt><dd>80,000원</dd></div>
+              <div><dt>120분</dt><dd>100,000원</dd></div>
+            </dl>
+          </article>
+
+          <article class="course-card">
+            <div class="course-top"><span>03</span><small>SWEDISH</small></div>
+            <h3>힐링스웨디시 코스</h3>
+            <p>따뜻한 오일과 부드러운 압으로 림프 순환과 깊은 휴식을 이끄는 감성 테라피.</p>
+            <dl>
+              <div><dt>60분</dt><dd>80,000원</dd></div>
+              <div><dt>90분</dt><dd>100,000원</dd></div>
+              <div><dt>120분</dt><dd>120,000원</dd></div>
+            </dl>
+          </article>
+
+          <article class="course-card course-card--highlight">
+            <div class="course-top"><span>04</span><small>VIP SPECIAL</small></div>
+            <h3>VIP 스페셜 코스</h3>
+            <p>건식의 시원함과 스웨디시의 부드러움을 한 번에 누리는 퀸즈 시그니처 코스.</p>
+            <dl>
+              <div><dt>60분</dt><dd>100,000원</dd></div>
+              <div><dt>90분</dt><dd>120,000원</dd></div>
+              <div><dt>120분</dt><dd>150,000원</dd></div>
+            </dl>
+          </article>
+
+          <article class="course-card course-card--highlight">
+            <div class="course-top"><span>05</span><small>KOREAN CARE</small></div>
+            <h3>한국 관리사 코스</h3>
+            <p>전문적인 실력과 정성을 겸비한 20~30대 한국인 전문 관리사의 프리미엄 케어.</p>
+            <dl>
+              <div><dt>60분</dt><dd>150,000원</dd></div>
+              <div><dt>90분</dt><dd>180,000원</dd></div>
+            </dl>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 고객 이용 후기 -->
+    <section class="section-shell" id="review">
+      <div class="section-intro">
+        <span>REAL REVIEWS</span>
+        <h2>실제 고객 이용 후기</h2>
+        <p>퀸즈홈테라피를 직접 이용해 주신 분들의 솔직한 후기입니다.</p>
+      </div>
+      <div class="review-grid">
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p>"야근 끝나고 늦은 새벽에 예약했는데 25분 만에 오셨네요. 선입금 요구도 전혀 없고 관리사분도 너무 친절하게 뭉친 어깨를 다 풀어주셔서 대만족입니다."</p>
+          </div>
+          <div class="review-meta"><span>강남구 직장인 김*우 고객님</span><span>VIP 스페셜 코스</span></div>
+        </div>
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p>"출장 와서 호텔에서 처음 이용해봤는데 대기 시간도 짧고 시설 밖으로 안 나가도 되니 너무 편합니다. 스웨디시 코스 진짜 부드럽고 힐링 제대로 했어요."</p>
+          </div>
+          <div class="review-meta"><span>수원 호텔 이용 이*현 고객님</span><span>스웨디시 코스</span></div>
+        </div>
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p>"한국 관리사 코스로 받았는데 대화도 잘 통하고 원하는 압 세기에 맞춰 세심하게 케어해주시네요. 내 집에서 편하게 받을 수 있어서 단골 될 것 같습니다."</p>
+          </div>
+          <div class="review-meta"><span>송도 거주 박*준 고객님</span><span>한국 관리사 코스</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FAQ 4개 -->
+    <section class="section-shell" id="faq">
+      <div class="section-intro">
+        <span>FAQ</span>
+        <h2>자주 묻는 질문</h2>
+        <p>상담 전 가장 많이 여쭤보시는 질문 4가지입니다.</p>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>01. 선입금이나 예약금이 전혀 없나요?</summary>
+          <p>네, 맞습니다. 퀸즈홈테라피는 선입금이나 예약금을 1원도 요구하지 않는 100% 후불제 시스템입니다. 관리사가 계신 곳에 도착한 후 결제하시면 되므로 안심하고 이용하실 수 있습니다.</p>
+        </details>
+        <details>
+          <summary>02. 호텔, 모텔, 오피스텔에서도 이용이 가능한가요?</summary>
+          <p>네, 가능합니다. 자택(아파트·빌라·주택)은 물론 출장지 호텔, 모텔, 오피스텔 등 머무시는 장소의 위치와 방 번호만 말씀해 주시면 신속하게 배정해 드립니다.</p>
+        </details>
+        <details>
+          <summary>03. 예약 후 도착까지 얼마나 걸리나요?</summary>
+          <p>서울·경기·인천 각 거점별로 관리사가 상시 대기하고 있어, 통화 후 평균 25분~35분 내에 빠르게 도착합니다. (도로 사정 및 기상 상황에 따라 약간의 차이가 있을 수 있습니다.)</p>
+        </details>
+        <details>
+          <summary>04. 어떤 코스를 골라야 할지 고민되는데 추천해 주시나요?</summary>
+          <p>강한 압과 스트레칭으로 뭉친 근육을 풀고 싶다면 '건식 힐링', 부드러운 릴렉싱과 스트레스 완화를 원하시면 '아로마'나 '스웨디시', 둘 다 원하시면 'VIP 스페셜'을 추천합니다. 전화 주시면 컨디션에 맞춰 추천해 드립니다.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 4. 구글 맵 영역 -->
+    <section class="map-container">
+      <div class="section-intro" style="margin-bottom: 20px;">
+        <span>SERVICE AREA MAP</span>
+        <h2>방문 서비스 지역 안내</h2>
+      </div>
+      <div class="map-frame">
+        <iframe src="https://maps.google.com/maps?q=서울,경기,인천&t=&z=10&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <!-- 5. 서비스 가능 광역 지역 선택 섹션 (구/동 목록 없이 3대 지역 카드만 깔끔하게 노출) -->
+    <section class="section-shell" id="areas" style="padding-top: 40px;">
+      <div class="section-intro">
+        <span>AREA DIRECTORY</span>
+        <h2>서비스 가능 지역 둘러보기</h2>
+        <p>원하시는 시·도 광역 지역을 선택하시면 상세 구·동 목록으로 이동합니다.</p>
+      </div>
+      
+      <div class="region-grid">
+        <a class="region-card" href="/seoul/">
+          <span>01</span>
+          <div><b>서울 지역</b><small>강남·서초·송파·마포 등 25개 구 전체보기 ➔</small></div>
+        </a>
+        <a class="region-card" href="/gyeonggi/">
+          <span>02</span>
+          <div><b>경기 지역</b><small>수원·성남·용인·고양 등 31개 시·군 전체보기 ➔</small></div>
+        </a>
+        <a class="region-card" href="/incheon/">
+          <span>03</span>
+          <div><b>인천 지역</b><small>송도·청라·부평·구월 등 전지역 전체보기 ➔</small></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <span>프리미엄 방문 케어 · 퀸즈홈테라피</span>
+      <h2>계신 곳과 원하는 시간부터.</h2>
+      <p>지금 전화 주시면 최단 거리 관리사를 차분히 안내해 드립니다.</p>
+      <a class="button button--signal" href="tel:0507-1280-3296">0507-1280-3296 전화 문의</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 퀸즈홈테라피 | 서울·경기·인천 24시간 연중무휴 상담: 0507-1280-3296</p>
+  </footer>
+
+  <aside class="contact-dock">
+    <a href="tel:0507-1280-3296" class="contact-dock__btn contact-dock__btn--call">
+      <span>📞 전화 상담</span>
+    </a>
+    <a href="sms:0507-1280-3296" class="contact-dock__btn contact-dock__btn--sms">
+      <span>💬 문자 문의</span>
+    </a>
+  </aside>
+</body>
+</html>
+

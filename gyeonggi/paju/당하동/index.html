@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ko" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>경기 당하동 출장마사지 | 퀸즈홈테라피 24시</title>
+  <meta name="description" content="경기 파주시 당하동 24시간 출장마사지 퀸즈홈테라피.">
+  <style>
+    :root {
+      --bg-main: #08151f;
+      --bg-card: #0e2333;
+      --bg-card-hover: #132f45;
+      --text-main: #f0f4f8;
+      --text-sub: #94a3b8;
+      --accent: #ff7a18;
+      --accent-gradient: linear-gradient(135deg, #ff7a18, #af002d);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --max-w: 1100px;
+      --font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-main); color: var(--text-main); font-family: var(--font-family);
+      line-height: 1.6; letter-spacing: -0.02em; word-break: keep-all; padding-bottom: 100px;
+    }
+    a { color: inherit; text-decoration: none; }
+    
+    .site-header {
+      position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 24px; background: rgba(8, 21, 31, 0.92); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color); z-index: 1000;
+    }
+    .brand { display: flex; flex-direction: column; font-size: 1.15rem; font-weight: 800; }
+    .brand small { font-size: 0.65rem; color: var(--text-sub); }
+    .header-links { display: flex; align-items: center; gap: 12px; }
+    
+    .section-shell { max-width: var(--max-w); margin: 0 auto; padding: 60px 20px; }
+    .section-intro { text-align: center; margin-bottom: 40px; }
+    .section-intro span { font-size: 0.8rem; font-weight: 700; color: var(--accent); }
+    .section-intro h2 { font-size: 1.8rem; font-weight: 800; margin: 8px 0; }
+    .section-intro p { color: var(--text-sub); }
+    
+    /* 빵부스러기(Breadcrumb) 경로 네비게이션 */
+    .breadcrumbs {
+      max-width: var(--max-w); margin: 16px auto 0; padding: 0 20px;
+      display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-sub);
+    }
+    .breadcrumbs a { color: var(--accent); }
+    .breadcrumbs span { color: rgba(255,255,255,0.3); }
+
+    .home-hero {
+      max-width: var(--max-w); margin: 0 auto; padding: 40px 20px 40px;
+      display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 40px;
+    }
+    .hero-kicker { color: var(--accent); font-size: 0.9rem; font-weight: 700; margin-bottom: 12px; }
+    .home-hero h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 16px; line-height: 1.3; }
+    .home-hero h1 em { font-style: normal; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-lead { color: var(--text-sub); font-size: 1.05rem; margin-bottom: 30px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 28px; border-radius: 30px; font-weight: 700; font-size: 1rem;
+      background: var(--accent-gradient); color: #fff;
+    }
+    
+    .hero-media {
+      background: var(--bg-card); border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border-color); box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center;
+    }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    
+    .promo-banner { max-width: var(--max-w); margin: 30px auto; padding: 0 20px; }
+    .promo-banner__inner {
+      background: linear-gradient(135deg, #132f45 0%, #0e2333 50%, #1f1024 100%);
+      border: 1px solid rgba(255, 122, 24, 0.3); border-radius: 16px; padding: 20px 24px;
+      display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    }
+    .promo-banner__text h3 { font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .promo-banner__text h3 em { font-style: normal; color: var(--accent); }
+    .promo-banner__text p { color: var(--text-sub); font-size: 0.85rem; }
+    .promo-banner__btn {
+      background: var(--accent-gradient); color: #fff; padding: 10px 20px;
+      border-radius: 30px; font-weight: 700; font-size: 0.85rem; white-space: nowrap;
+    }
+
+    .course-section { background: #050e14; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+    .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .course-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; }
+    .course-top { display: flex; justify-content: space-between; margin-bottom: 12px; }
+    .course-top span { font-size: 1.2rem; font-weight: 800; color: var(--accent); }
+    .course-card h3 { font-size: 1.3rem; margin-bottom: 8px; }
+    .course-card p { color: var(--text-sub); font-size: 0.85rem; margin-bottom: 20px; }
+    .course-card dl div { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .course-card dl div dd { font-weight: 700; color: var(--accent); }
+    .course-card--highlight { border-color: rgba(255, 122, 24, 0.4); background: linear-gradient(145deg, #132f45, #0e2333); }
+
+    .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .review-card {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: 12px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .review-stars { color: #ffb703; font-size: 0.95rem; margin-bottom: 10px; }
+    .review-card p { color: var(--text-main); font-size: 0.95rem; line-height: 1.5; margin-bottom: 16px; }
+    .review-meta { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-sub); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px; }
+
+    .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-list details { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 16px 20px; }
+    .faq-list summary { cursor: pointer; font-weight: 700; }
+    .faq-list details p { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--text-sub); font-size: 0.9rem; }
+
+    .map-container { max-width: var(--max-w); margin: 0 auto; padding: 0 20px; }
+    .map-frame {
+      width: 100%; height: 340px; border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .map-frame iframe { width: 100%; height: 100%; border: 0; filter: invert(90%) hue-rotate(180deg); }
+
+    /* 단계별 동네 선택 영역 (스크롤 없이 깔끔하게 배치) */
+    .area-nav-box {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: 16px; padding: 30px 24px; text-align: center; margin-top: 20px;
+    }
+    .area-nav-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 16px; color: #fff; }
+    .quick-dong-tags {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    }
+    .quick-dong-tags a {
+      background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color);
+      padding: 8px 18px; border-radius: 20px; font-size: 0.9rem; color: var(--text-main);
+      transition: all 0.2s ease;
+    }
+    .quick-dong-tags a:hover {
+      background: var(--accent-gradient); color: #fff; border-color: transparent; transform: translateY(-2px);
+    }
+
+    .site-footer { text-align: center; padding: 40px 20px; color: var(--text-sub); font-size: 0.85rem; }
+    .contact-dock {
+      position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 8px; width: calc(100% - 32px); max-width: 440px; z-index: 9999;
+      padding: 6px; background: rgba(8, 21, 31, 0.95); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    .contact-dock__btn {
+      flex: 1; display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; height: 48px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 15px;
+    }
+    .contact-dock__btn--call { background: var(--accent-gradient); color: #fff; }
+    .contact-dock__btn--sms { background: rgba(255, 255, 255, 0.12); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); }
+    
+    @media (max-width: 768px) {
+      .home-hero { grid-template-columns: 1fr; text-align: center; padding-top: 20px; }
+      .promo-banner__inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body class="area-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <span>퀸즈홈테라피</span>
+      <small>QUEENS HOME THERAPY</small>
+    </a>
+    <div class="header-links">
+      <a style="font-size: 0.85rem; color: var(--text-sub); border: 1px solid var(--border-color); padding: 6px 14px; border-radius: 20px;" href="/">🏠 메인 홈으로</a>
+      <a class="button" style="padding: 6px 14px; font-size: 0.85rem;" href="tel:0507-1280-3296">전화상담</a>
+    </div>
+  </header>
+
+  <!-- 빵부스러기 경로 안내 -->
+  <nav class="breadcrumbs">
+    <a href="/">홈</a> <span>&gt;</span> <a href="/gyeonggi/">경기</a> <span>&gt;</span> <a href="/gyeonggi/paju/">파주시</a> <span>&gt;</span> 당하동
+  </nav>
+
+  <main>
+    <section class="home-hero">
+      <div class="hero-copy">
+        <p class="hero-kicker">파주시 당하동 출장마사지 · 퀸즈홈테라피</p>
+        <h1><span>파주시 당하동에서</span><br><span><em>머무는 곳까지</em></span></h1>
+        <p class="hero-lead">당하동 어디서나 머무시는 곳으로 25~35분 내에 빠르게 방문합니다.</p>
+        <a class="button" href="tel:0507-1280-3296">전화로 시간 맞추기 <i>↗</i></a>
+      </div>
+      <div class="hero-media">
+        <img src="/assets/images/main-banner.jpg" alt="파주시 당하동 퀸즈홈테라피 메인 배너">
+      </div>
+    </section>
+
+    <!-- 프로모션 띠배너 -->
+    <section class="promo-banner">
+      <div class="promo-banner__inner">
+        <div class="promo-banner__text">
+          <h3>👑 파주시 당하동 <em>100% 후불제 안심 케어</em></h3>
+          <p>선입금 없는 100% 후불 결제로 편안하게 이용하세요.</p>
+        </div>
+        <a href="tel:0507-1280-3296" class="promo-banner__btn">지금 예약 문의 ↗</a>
+      </div>
+    </section>
+
+    <!-- 코스 & 요금 섹션 -->
+    <section class="course-section">
+      <div class="section-shell">
+        <div class="section-intro">
+          <span>COURSE &amp; PRICE</span>
+          <h2>파주시 당하동 코스 및 이용 요금</h2>
+          <p>선입금 없는 100% 후불제 안심 케어</p>
+        </div>
+        <div class="course-grid">
+          <article class="course-card">
+            <div class="course-top"><span>01</span><small>DRY</small></div>
+            <h3>건식 힐링 코스</h3>
+            <p>스트레칭과 건식 지압으로 뭉친 피로를 풀어가는 코스</p>
+            <dl>
+              <div><dt>60분</dt><dd>60,000원</dd></div>
+              <div><dt>90분</dt><dd>80,000원</dd></div>
+              <div><dt>120분</dt><dd>100,000원</dd></div>
+            </dl>
+          </article>
+          <article class="course-card">
+            <div class="course-top"><span>02</span><small>AROMA</small></div>
+            <h3>아로마 힐링 코스</h3>
+            <p>고급 오일을 사용해 부드럽게 긴장을 낮추는 코스</p>
+            <dl>
+              <div><dt>60분</dt><dd>70,000원</dd></div>
+              <div><dt>90분</dt><dd>80,000원</dd></div>
+              <div><dt>120분</dt><dd>100,000원</dd></div>
+            </dl>
+          </article>
+          <article class="course-card">
+            <div class="course-top"><span>03</span><small>SWEDISH</small></div>
+            <h3>힐링스웨디시 코스</h3>
+            <p>부드러운 림프 순환과 릴렉싱을 돕는 감성 테라피</p>
+            <dl>
+              <div><dt>60분</dt><dd>80,000원</dd></div>
+              <div><dt>90분</dt><dd>100,000원</dd></div>
+              <div><dt>120분</dt><dd>120,000원</dd></div>
+            </dl>
+          </article>
+          <article class="course-card course-card--highlight">
+            <div class="course-top"><span>04</span><small>VIP SPECIAL</small></div>
+            <h3>VIP 스페셜 코스</h3>
+            <p>건식과 스웨디시의 장점을 모은 프리미엄 코스</p>
+            <dl>
+              <div><dt>60분</dt><dd>100,000원</dd></div>
+              <div><dt>90분</dt><dd>120,000원</dd></div>
+              <div><dt>120분</dt><dd>150,000원</dd></div>
+            </dl>
+          </article>
+          <article class="course-card course-card--highlight">
+            <div class="course-top"><span>05</span><small>KOREAN CARE</small></div>
+            <h3>한국 관리사 코스</h3>
+            <p>정성을 다하는 한국인 전문 관리사의 1:1 맞춤 케어</p>
+            <dl>
+              <div><dt>60분</dt><dd>150,000원</dd></div>
+              <div><dt>90분</dt><dd>180,000원</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 지역 맞춤 이용 후기 -->
+    <section class="section-shell">
+      <div class="section-intro">
+        <span>파주시 당하동 REVIEWS</span>
+        <h2>파주시 당하동 고객 이용 후기</h2>
+      </div>
+      <div class="review-grid">
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p>"파주시 당하동 자택에서 이용했습니다. 시간 약속 철저하게 지켜주시고 100% 후불이라 마음 편히 받을 수 있었네요. 추천합니다."</p>
+          </div>
+          <div class="review-meta"><span>파주시 당하동 이용 고객님</span><span>VIP 스페셜 코스</span></div>
+        </div>
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p>"일 끝나고 지친 상태였는데 예약 후 빠르게 방문해 주셔서 감동이었습니다. 관리사님 압 조절도 완벽했고 피로가 싹 풀렸습니다."</p>
+          </div>
+          <div class="review-meta"><span>파주시 당하동 이용 고객님</span><span>스웨디시 코스</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 지역 맞춤 FAQ -->
+    <section class="section-shell">
+      <div class="section-intro">
+        <span>FAQ</span>
+        <h2>파주시 당하동 자주 묻는 질문</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>01. 파주시 당하동 전지역 선입금이나 예약금이 없나요?</summary>
+          <p>네, 파주시 당하동 전지역 어디서 이용하셔도 선입금과 예약금은 절대 요구하지 않습니다. 관리사가 계신 곳에 도착한 후 결제하시면 됩니다.</p>
+        </details>
+        <details>
+          <summary>02. 파주시 당하동 내 호텔/오피스텔도 가능한가요?</summary>
+          <p>네, 자택은 물론 파주시 당하동 인근 호텔, 모텔, 오피스텔, 원룸 등 머무시는 장소의 위치만 알려주시면 신속히 배정해 드립니다.</p>
+        </details>
+        <details>
+          <summary>03. 파주시 당하동까지 방문 시간은 얼마나 걸리나요?</summary>
+          <p>파주시 당하동 인근 최단거리 관리사를 우선 배정하여, 예약 문의 후 평균 25분~35분 내로 신속히 방문합니다.</p>
+        </details>
+        <details>
+          <summary>04. 파주시 당하동에서 어떤 코스가 가장 인기가 많나요?</summary>
+          <p>첫 방문이시라면 건식과 스웨디시를 함께 경험할 수 있는 'VIP 스페셜 코스' 또는 '한국 관리사 코스'를 가장 많이 찾으십니다.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 동적 지역 구글 지도 영역 -->
+    <section class="map-container">
+      <div class="section-intro" style="margin-bottom: 20px;">
+        <span>LOCATION MAP</span>
+        <h2>파주시 당하동 방문 서비스 지도</h2>
+      </div>
+      <div class="map-frame">
+        <iframe src="https://maps.google.com/maps?q=파주시 당하동&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <!-- [핵심] 해당 구/지역 맞춤 동네 네비게이션 -->
+    <section class="section-shell" style="padding-top: 40px;">
+      <div class="area-nav-box">
+        <div class="area-nav-title">📍 파주시 인근 동네 둘러보기</div>
+        <div class="quick-dong-tags">
+          <a href="/gyeonggi/paju/운정동/">운정동</a>
+<a href="/gyeonggi/paju/야당동/">야당동</a>
+<a href="/gyeonggi/paju/와동동/">와동동</a>
+<a href="/gyeonggi/paju/목동동/">목동동</a>
+<a href="/gyeonggi/paju/동패동/">동패동</a>
+<a href="/gyeonggi/paju/다율동/">다율동</a>
+<a href="/gyeonggi/paju/당하동/">당하동</a>
+<a href="/gyeonggi/paju/교하동/">교하동</a>
+<a href="/gyeonggi/paju/금촌동/">금촌동</a>
+<a href="/gyeonggi/paju/아동동/">아동동</a>
+<a href="/gyeonggi/paju/야동동/">야동동</a>
+<a href="/gyeonggi/paju/검산동/">검산동</a>
+<a href="/gyeonggi/paju/맥금동/">맥금동</a>
+<a href="/gyeonggi/paju/문산읍/">문산읍</a>
+<a href="/gyeonggi/paju/파주읍/">파주읍</a>
+<a href="/gyeonggi/paju/조리읍/">조리읍</a>
+<a href="/gyeonggi/paju/법원읍/">법원읍</a>
+<a href="/gyeonggi/paju/탄현면/">탄현면</a>
+<a href="/gyeonggi/paju/광탄면/">광탄면</a>
+<a href="/gyeonggi/paju/월롱면/">월롱면</a>
+<a href="/gyeonggi/paju/적성면/">적성면</a>
+<a href="/gyeonggi/paju/파평면/">파평면</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 퀸즈홈테라피 | 파주시 당하동 빠른 방문 24시간 상담: 0507-1280-3296</p>
+  </footer>
+
+  <aside class="contact-dock">
+    <a href="tel:0507-1280-3296" class="contact-dock__btn contact-dock__btn--call">
+      <span>📞 전화 상담</span>
+    </a>
+    <a href="sms:0507-1280-3296" class="contact-dock__btn contact-dock__btn--sms">
+      <span>💬 문자 문의</span>
+    </a>
+  </aside>
+</body>
+</html>
