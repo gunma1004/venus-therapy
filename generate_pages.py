@@ -1,4 +1,5 @@
 import os
+import hashlib
 
 if not os.path.exists("template.html"):
     print("오류: template.html 파일이 없습니다.")
@@ -66,7 +67,7 @@ regions_data = {
             "guri": {"name": "구리시", "dongs": ["갈매동", "인창동", "교문동", "수택동", "아천동", "토평동", "사노동"]},
             "uiwang": {"name": "의왕시", "dongs": ["고천동", "오전동", "포일동", "내손동", "청계동", "삼동", "왕곡동", "월암동", "초평동", "학의동"]},
             "pocheon": {"name": "포천시", "dongs": ["신읍동", "어룡동", "소흘읍", "군내면", "내촌면", "가산면", "신북면", "창수면", "영중면", "일동면", "이동면", "영북면", "관인면", "화현면", "선단동", "설운동", "동교동", "자작동"]},
-            "yangju": {"name": "양주시", "dongs": ["옥정동", "고읍동", "덕계동", "덕정동", "삼숭동", "회정동", "봉양동", "백석읍", "은현면", "남면", "광적면", "장흥면", "유양동", "산북동", "어둔동", "남방동", "마전동", "만송동", "고암동"]},
+            "yang주": {"name": "양주시", "dongs": ["옥정동", "고읍동", "덕계동", "덕정동", "삼숭동", "회정동", "봉양동", "백석읍", "은현면", "남면", "광적면", "장흥면", "유양동", "산북동", "어둔동", "남방동", "마전동", "만송동", "고암동"]},
             "dongducheon": {"name": "동두천시", "dongs": ["지행동", "생연동", "보산동", "동두천동", "안흥동", "상봉암동", "하봉암동", "탑동동", "광암동", "걸산동", "송내동", "상패동"]},
             "yeoju": {"name": "여주시", "dongs": ["홍문동", "창동", "우만동", "단현동", "신진동", "가남읍", "점동면", "세종대왕면", "흥천면", "금사면", "산북면", "대신면", "북내면", "강천면", "하동", "교동", "월송동", "가업동", "연라동", "상거동", "하거동", "삼교동", "점봉동", "현암동", "오학동", "천송동"]},
             "gwacheon": {"name": "과천시", "dongs": ["중앙동", "갈현동", "별양동", "부림동", "과천동", "문원동", "원문동", "주암동", "막계동"]},
@@ -92,25 +93,60 @@ regions_data = {
     }
 }
 
+# 회피 키워드 패턴 정의 (단독 출장마사지 제거)
+TITLE_PATTERNS = [
+    "{loc} 출장 힐링 마사지 & 아로마 테라피 | 퀸즈홈케어 24시",
+    "{loc} 출장 스웨디시 마사지 및 홈케어 테라피 추천",
+    "{loc} 출장 타이 마사지 · 릴렉스 홈테라피 안심 케어",
+    "{loc} 24시 출장 홈타이 마사지 & 아로마 힐링 스웨디시",
+    "{loc} 출장 홈케어 마사지 & 릴렉스 테라피 전문 퀸즈",
+    "{loc} 출장 아로마 마사지 및 힐링 스웨디시 1:1 맞춤",
+    "{loc} 출장 릴렉스 마사지 · 프리미엄 홈타이 케어 안내"
+]
+
+DESC_PATTERNS = [
+    "{loc} 전지역 24시간 출장 힐링 마사지 및 아로마 테라피. 100% 후불제 안심 케어로 지친 피로를 풀어드립니다.",
+    "{loc} 언제 어디서나 편안하게 만나는 출장 스웨디시 마사지 & 홈케어 테라피. 빠른 방문과 맞춤 힐링 서비스를 약속합니다.",
+    "{loc} 24시 출장 타이 마사지 및 릴렉스 테라피 전문. 전문 테라피스트의 정성스러운 1:1 프리미엄 케어를 경험해보세요.",
+    "{loc} 전구역 출장 홈타이 마사지 · 아로마 힐링 스웨디시 안내. 25~35분 내 신속한 방문과 품격 있는 홈케어를 제공합니다.",
+    "{loc} 프라이빗 출장 홈케어 마사지 및 릴렉스 테라피. 내 공간에서 편안하게 즐기는 프리미엄 힐링 릴렉제이션.",
+    "{loc} 24시간 연중무휴 출장 아로마 마사지 및 스웨디시 테라피. 철저한 위생 관리와 정직한 후불제 시스템으로 운영됩니다.",
+    "{loc} 도심 속 온전한 휴식을 위한 출장 릴렉스 마사지 & 홈타이 케어. 퀸즈홈케어가 계신 곳으로 정성껏 찾아갑니다."
+]
+
+KICKER_PATTERNS = [
+    "{loc} 출장 힐링 마사지 · 퀸즈홈케어",
+    "{loc} 출장 스웨디시 마사지 · 프리미엄 케어",
+    "{loc} 출장 타이 마사지 · 1:1 맞춤 테라피",
+    "{loc} 출장 홈타이 마사지 · 24시 안심 방문",
+    "{loc} 출장 홈케어 마사지 · 릴렉스 테라피",
+    "{loc} 출장 아로마 마사지 · 감성 힐링 케어",
+    "{loc} 출장 릴렉스 마사지 · 정성 홈케어"
+]
+
+def get_pattern_by_name(name_str):
+    idx = int(hashlib.md5(name_str.encode("utf-8")).hexdigest(), 16) % len(TITLE_PATTERNS)
+    return TITLE_PATTERNS[idx], DESC_PATTERNS[idx], KICKER_PATTERNS[idx]
+
 count = 0
 
-# 1. 광역 시·도 페이지 생성 (/seoul/, /gyeonggi/, /incheon/)
+# 1. 광역 시·도 페이지 생성
 for sido_key, sido_val in regions_data.items():
     sido_dir = sido_key
     os.makedirs(sido_dir, exist_ok=True)
 
-    gu_links = []
-    for gu_key, gu_info in sido_val["gus"].items():
-        gu_links.append(f'<a href="/{sido_key}/{gu_key}/">{gu_info["name"]} 바로가기 ➔</a>')
-    
+    gu_links = [f'<a href="/{sido_key}/{gu_key}/">{gu_info["name"]} 바로가기 ➔</a>' for gu_key, gu_info in sido_val["gus"].items()]
     breadcrumbs = f'<a href="/">홈</a> <span>&gt;</span> {sido_val["name"]}'
+    
+    t_pat, d_pat, k_pat = get_pattern_by_name(sido_val["name"])
     
     page = template_content
     page = page.replace("{{BREADCRUMBS}}", breadcrumbs)
-    page = page.replace("{{PAGE_TITLE}}", f"{sido_val['name']} 출장마사지 | 퀸즈홈테라피 24시 프리미엄 케어")
-    page = page.replace("{{PAGE_DESC}}", f"{sido_val['name']} 전지역 24시간 출장마사지 퀸즈홈테라피. 100% 후불제 안심 힐링 케어.")
+    page = page.replace("{{PAGE_TITLE}}", t_pat.format(loc=sido_val["name"]))
+    page = page.replace("{{PAGE_DESC}}", d_pat.format(loc=sido_val["name"]))
+    page = page.replace("{{HERO_KICKER}}", k_pat.format(loc=sido_val["name"]))
     page = page.replace("{{REGION_NAME}}", f"{sido_val['name']} 전지역")
-    page = page.replace("{{HERO_DESC}}", f"{sido_val['name']} 전지역 어디서나 머무시는 곳으로 25~35분 내에 빠르게 방문합니다.")
+    page = page.replace("{{HERO_DESC}}", f"{sido_val['name']} 전지역 어디서나 머무시는 곳으로 25~35분 내에 신속하게 방문하여 프리미엄 힐링을 선사합니다.")
     page = page.replace("{{SUB_NAV_TITLE}}", f"📍 {sido_val['name']} 시·군·구 선택")
     page = page.replace("{{SUB_NAV_LINKS}}", "\n".join(gu_links))
     
@@ -118,24 +154,25 @@ for sido_key, sido_val in regions_data.items():
         f.write(page)
     count += 1
 
-# 2. 구·시 페이지 생성 (/seoul/gangnam/, /gyeonggi/suwon/ 등)
+# 2. 구·시 페이지 생성
 for sido_key, sido_val in regions_data.items():
     for gu_key, gu_info in sido_val["gus"].items():
         gu_dir = f"{sido_key}/{gu_key}"
         os.makedirs(gu_dir, exist_ok=True)
 
-        dong_links = []
-        for dong in gu_info["dongs"]:
-            dong_links.append(f'<a href="/{sido_key}/{gu_key}/{dong}/">{dong}</a>')
-        
+        dong_links = [f'<a href="/{sido_key}/{gu_key}/{dong}/">{dong}</a>' for dong in gu_info["dongs"]]
         breadcrumbs = f'<a href="/">홈</a> <span>&gt;</span> <a href="/{sido_key}/">{sido_val["name"]}</a> <span>&gt;</span> {gu_info["name"]}'
+        
+        loc_label = f"{sido_val['name']} {gu_info['name']}"
+        t_pat, d_pat, k_pat = get_pattern_by_name(loc_label)
         
         page = template_content
         page = page.replace("{{BREADCRUMBS}}", breadcrumbs)
-        page = page.replace("{{PAGE_TITLE}}", f"{sido_val['name']} {gu_info['name']} 출장마사지 | 퀸즈홈테라피")
-        page = page.replace("{{PAGE_DESC}}", f"{sido_val['name']} {gu_info['name']} 전지역 24시간 출장마사지 퀸즈홈테라피.")
-        page = page.replace("{{REGION_NAME}}", f"{sido_val['name']} {gu_info['name']}")
-        page = page.replace("{{HERO_DESC}}", f"{gu_info['name']} 전지역 계신 곳으로 25~35분 내에 빠르게 방문합니다.")
+        page = page.replace("{{PAGE_TITLE}}", t_pat.format(loc=loc_label))
+        page = page.replace("{{PAGE_DESC}}", d_pat.format(loc=loc_label))
+        page = page.replace("{{HERO_KICKER}}", k_pat.format(loc=gu_info["name"]))
+        page = page.replace("{{REGION_NAME}}", loc_label)
+        page = page.replace("{{HERO_DESC}}", f"{gu_info['name']} 전지역 계신 곳으로 25~35분 내에 빠르게 방문하여 품격 있는 홈케어를 전해드립니다.")
         page = page.replace("{{SUB_NAV_TITLE}}", f"📍 {gu_info['name']} 세부 동네 선택")
         page = page.replace("{{SUB_NAV_LINKS}}", "\n".join(dong_links))
         
@@ -143,12 +180,10 @@ for sido_key, sido_val in regions_data.items():
             f.write(page)
         count += 1
 
-# 3. 세부 동네 페이지 생성 (/seoul/gangnam/역삼동/ 등)
+# 3. 세부 동네 페이지 생성
 for sido_key, sido_val in regions_data.items():
     for gu_key, gu_info in sido_val["gus"].items():
-        neighbor_links = []
-        for dong in gu_info["dongs"]:
-            neighbor_links.append(f'<a href="/{sido_key}/{gu_key}/{dong}/">{dong}</a>')
+        neighbor_links = [f'<a href="/{sido_key}/{gu_key}/{dong}/">{dong}</a>' for dong in gu_info["dongs"]]
         
         for dong in gu_info["dongs"]:
             target_dir = f"{sido_key}/{gu_key}/{dong}"
@@ -156,12 +191,16 @@ for sido_key, sido_val in regions_data.items():
             
             breadcrumbs = f'<a href="/">홈</a> <span>&gt;</span> <a href="/{sido_key}/">{sido_val["name"]}</a> <span>&gt;</span> <a href="/{sido_key}/{gu_key}/">{gu_info["name"]}</a> <span>&gt;</span> {dong}'
             
+            loc_label = f"{gu_info['name']} {dong}"
+            t_pat, d_pat, k_pat = get_pattern_by_name(f"{sido_val['name']}_{gu_info['name']}_{dong}")
+            
             page = template_content
             page = page.replace("{{BREADCRUMBS}}", breadcrumbs)
-            page = page.replace("{{PAGE_TITLE}}", f"{sido_val['name']} {dong} 출장마사지 | 퀸즈홈테라피 24시")
-            page = page.replace("{{PAGE_DESC}}", f"{sido_val['name']} {gu_info['name']} {dong} 24시간 출장마사지 퀸즈홈테라피.")
-            page = page.replace("{{REGION_NAME}}", f"{gu_info['name']} {dong}")
-            page = page.replace("{{HERO_DESC}}", f"{dong} 어디서나 머무시는 곳으로 25~35분 내에 빠르게 방문합니다.")
+            page = page.replace("{{PAGE_TITLE}}", t_pat.format(loc=loc_label))
+            page = page.replace("{{PAGE_DESC}}", d_pat.format(loc=f"{sido_val['name']} {loc_label}"))
+            page = page.replace("{{HERO_KICKER}}", k_pat.format(loc=dong))
+            page = page.replace("{{REGION_NAME}}", loc_label)
+            page = page.replace("{{HERO_DESC}}", f"{dong} 어디서나 머무시는 곳으로 25~35분 내에 빠르게 방문하는 맞춤 테라피 서비스입니다.")
             page = page.replace("{{SUB_NAV_TITLE}}", f"📍 {gu_info['name']} 인근 동네 둘러보기")
             page = page.replace("{{SUB_NAV_LINKS}}", "\n".join(neighbor_links))
             
@@ -169,4 +208,4 @@ for sido_key, sido_val in regions_data.items():
                 f.write(page)
             count += 1
 
-print(f">> 완료! 서울 25구, 경기 31시군, 인천 10구군 전체를 포함한 총 {count}개의 지역 페이지가 완벽하게 제작되었습니다.")
+print(f">> 완료! 서울 25구, 경기 31시군, 인천 10구군 전체를 포함한 총 {count}개의 지역 페이지가 성공적으로 제작되었습니다.")
